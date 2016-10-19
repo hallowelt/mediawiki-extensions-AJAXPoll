@@ -42,15 +42,14 @@ class AJAXPoll {
 		}
 
 		// ID of the poll, set from pagename if unique param is set
-               
-                if( isset( $args["unique"] ) && $args["unique"] == true ){
-                    $id = strtoupper( md5( $input . $wgRequest->getText("title") ) );
-                } else if ( isset( $args["id"] ) ) {
-                    $id = $args["id"];
+		if ( isset( $args["unique"] ) && $args["unique"] == true ) {
+			$id = strtoupper( md5( $input . $wgRequest->getText( "title" ) ) );
+		} elseif ( isset( $args["id"] ) ) {
+			$id = $args["id"];
 		} else {
-                    $id = strtoupper( md5( $input ) );
+      $id = strtoupper( md5( $input ) );
 		}
-                
+
 		// get the input
 		$input = $parser->recursiveTagParse( $input, $frame );
 		$input = trim( strip_tags( $input ) );
